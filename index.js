@@ -1,5 +1,4 @@
 import { createClient } from "redis";
-import { spawn } from "node:child_process";
 
 const client = await createClient()
     .on("error", (err) => console.log("Redis Client Error", err))
