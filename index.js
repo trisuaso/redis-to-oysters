@@ -9,9 +9,9 @@ console.log("Starting");
 
 for (const key of await client.keys("*")) {
     const value = await client.get(key);
-    spawn("oysters-cli", ["insert", key, value], {
-        detached: true,
-        shell: false,
+    await fetch(`http://localhost:5072/${key}`, {
+        method: "POST",
+        body: value,
     });
 }
 
